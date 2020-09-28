@@ -81,17 +81,13 @@ public class ManagementCompany {
 
 		if(propArr.size() > 1) {
 			for(int i = 0; i < propArr.size()-1; i++) {
-				if(propArr.get(i).getPlot().overlaps(prop.getPlot())) { // problem with logic, checks if it overlaps() itself
+				if(propArr.get(i).getPlot().overlaps(prop.getPlot())) {
 					propArr.remove(prop);
 					returnValue = -4;
 				}
 			}
 		}
-		/*else if(getPlot().overlaps(prop.getPlot())) {
-			propArr.remove(prop);
-			returnValue = -4;
-		}*/
-
+		
 		return returnValue; 
 	}
 	/**
@@ -128,10 +124,6 @@ public class ManagementCompany {
 				}
 			}
 		}
-		/*else if(getPlot().overlaps(prop.getPlot())) {
-			propArr.remove(prop);
-			returnValue =  -4;
-		}*/
 		
 		return returnValue;
 			
@@ -174,11 +166,7 @@ public class ManagementCompany {
 				}
 			}
 		}
-		/*else if(getPlot().overlaps(prop.getPlot())) {
-			propArr.remove(prop);
-			returnValue =  -4;
-		}*/
-
+		
 		return returnValue;
 	}
 	/**

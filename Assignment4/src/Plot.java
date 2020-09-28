@@ -62,12 +62,6 @@ public class Plot {
 		
 				returnValue = true;
 		
-		
-		/*
-		if(((pl.getX() > this.getX()) && (pl.getX() < this.getX() + this.getWidth())) && (pl.getY() < this.getY() + this.getDepth()))
-			 ((pl.getX() > this.getX()) && (pl.getX() < this.getX() + this.getWidth())) && ((pl.getY() > this.getY()) && (pl.getY() < this.getY() + this.getDepth()))
-			returnValue = true; 
-		*/
 		else
 			returnValue = false;
 		
@@ -80,7 +74,7 @@ public class Plot {
 	 */
 	public boolean encompasses(Plot pl) {
 		boolean returnValue;
-		// 	(0 + 1 <= 0 + 10) && (0 + 1 <= 0 + 10)				(0, 0, 10, 10) && (0,0, 1, 1)
+		
 		if((pl.getX() + pl.getWidth() <= this.getX() + this.getWidth()) && (pl.getY() + pl.getDepth() <= this.getY() + this.getDepth()))
 			returnValue = true;
 		else
