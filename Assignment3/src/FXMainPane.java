@@ -108,21 +108,31 @@ public class FXMainPane extends BorderPane {
 	    decryption.setTooltip(new Tooltip("Select this to decrypt a string"));
 	    //create a listener for the other button using a lambda expression
 	    decryption.setOnAction(event -> {
-	    	String encryptedText = "";
-	    	String bellasoStr = "";
-	    	String decryptedText;
-			System.out.println("...decrypting...");
-			encryptedText = encryptedStringTextField3.getText();
-			if (radioButton1.isSelected()) {
-				shiftInt = Integer.parseInt(inputForEncryptionTextField.getText());
-				decryptedText = CryptoManager.decryptCaesar(encryptedText, shiftInt);
+		    try {	
+	    		String encryptedText = "";
+		    	String bellasoStr = "";
+		    	String decryptedText;
+				System.out.println("...decrypting...");
+				encryptedText = encryptedStringTextField3.getText();
+				if (radioButton1.isSelected()) {
+					shiftInt = Integer.parseInt(inputForEncryptionTextField.getText());
+					decryptedText = CryptoManager.decryptCaesar(encryptedText, shiftInt);
+				}
+				else {
+					bellasoStr = inputForEncryptionTextField.getText().toUpperCase();
+					inputForEncryptionTextField.setText(bellasoStr);
+					decryptedText = CryptoManager.decryptBellaso(encryptedText, bellasoStr);
+				}
+				decryptedTextField4.setText(decryptedText);
+				
+			}catch (NumberFormatException e) {
+				//System.out.println(inputForEncryptionTextField.getText()+" should be an integer");	// add Alert here
+				Alert alert2 = new Alert(AlertType.ERROR);
+				alert2.setTitle("");
+				alert2.setHeaderText("");
+				alert2.setContentText("Please enter a Cyber Key below");
+				alert2.showAndWait();
 			}
-			else {
-				bellasoStr = inputForEncryptionTextField.getText().toUpperCase();
-				inputForEncryptionTextField.setText(bellasoStr);
-				decryptedText = CryptoManager.decryptBellaso(encryptedText, bellasoStr);
-			}
-			decryptedTextField4.setText(decryptedText);
 		});
 	    
 	  
